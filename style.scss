@@ -145,9 +145,17 @@ html > {
                 left: 0;
                 width: 100%;
                 height: $inputHeight;
-                background: darken(#E1E1E1, 3%);
+                background: darken(#E1E1E1, 1%);
                 transform: translateY(0);
-                transition: .1s ease transform;
+                transition: .1s ease transform, .2s ease height;
+
+                &.menu {
+                    height: $inputHeight * 2;
+
+                    .extra i {
+                        transform: rotate(160deg);
+                    }
+                }
 
                 &.inactive {
                     transform: translateY(100%);
@@ -168,14 +176,18 @@ html > {
                         color: #454545;
                     }
                 }
-
+                $keyboardHeight: #{$inputHeight - $extraHeight};
                 .k-holder {
-                    $keyboardHeight: #{$inputHeight - $extraHeight};
                     width: 100%;
                     height: $keyboardHeight;
                     position: absolute;
                     bottom: 0;
                     overflow: hidden;
+                    transition: .2s ease transform;
+
+                    &.inactive {
+                        transform: translateY(100%);
+                    }
 
                     #keyboard {
                         height: $keyboardHeight;
@@ -238,6 +250,19 @@ html > {
                         &.active {
                             transform: translateY(0);
                         }
+                    }
+                }
+
+                .menu-holder {
+                    position: absolute;
+                    bottom: 0;
+                    height: calc(#{$keyboardHeight} * 2);
+                    transform: translateX(-100%);
+                    transition: .2s ease transform;
+
+                    &.active {
+                        transition-delay: .3s;
+                        transform: translateX(0);
                     }
                 }
             }

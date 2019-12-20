@@ -9,6 +9,9 @@ const keyboardSmallToKeyboardElement = document.getElementById("keyboard-small__
 const mainInputElement = document.getElementById("main-input");
 const keyboardKeyElements = document.getElementsByClassName("key");
 const smallKeyboardKeyElements = document.getElementsByClassName("min-key");
+const mainInputExtraElement = document.getElementById("main-input__extra");
+const kHolderElement = document.getElementById("k-holder");
+const menuHolderElement = document.getElementById("menu-holder");
 const table = new Sudoku.Table();
 
 let solved = false;
@@ -103,6 +106,18 @@ let selectedBoxIndex = -1;
                     }
                 }
             });
+        }
+    });
+
+    mainInputExtraElement.addEventListener("click", function(event) {
+        if(mainInputElement.classList.contains("menu")) {
+            mainInputElement.classList.remove("menu");
+            kHolderElement.classList.remove("inactive");
+            menuHolderElement.classList.remove("active");
+        } else {
+            mainInputElement.classList.add("menu");
+            kHolderElement.classList.add("inactive");
+            menuHolderElement.classList.add("active");
         }
     });
 })();

@@ -9,10 +9,6 @@
 <body>
     <header>
         <h1 class="title">Sudoku</h1>
-        <div class="buttons">
-            <button id="new-sudoku">New Sudoku</button>
-            <button id="solve-sudoku">Solve</button>
-        </div>
     </header>
 
     <main>
@@ -22,10 +18,10 @@
         </div>
         
         <div class="input inactive" id="main-input">
-            <div class="extra">
+            <div class="extra" id="main-input__extra">
                 <i class="fas fa-cog"></i>
             </div>
-            <div class="k-holder">
+            <div class="k-holder" id="k-holder">
                 <table id="keyboard" class="active">
                     <tr class="keyboard row">
                         <td class="key one">1</td>
@@ -59,6 +55,13 @@
                         <td class="min-key nine">9</td>
                     </tr>
                 </table>
+            </div>
+
+            <div class="menu-holder" id="menu-holder">
+                <div class="buttons">
+                    <button id="new-sudoku">New Sudoku</button>
+                    <button id="solve-sudoku">Solve</button>
+                </div>
             </div>
         </div>
     </main>

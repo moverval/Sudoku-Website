@@ -138,11 +138,20 @@ html > body main .input {
   left: 0;
   width: 100%;
   height: 25vh;
-  background: #d9d9d9;
+  background: #dedede;
   -webkit-transform: translateY(0);
           transform: translateY(0);
-  -webkit-transition: .1s ease transform;
-  transition: .1s ease transform;
+  -webkit-transition: .1s ease transform, .2s ease height;
+  transition: .1s ease transform, .2s ease height;
+}
+
+html > body main .input.menu {
+  height: 50vh;
+}
+
+html > body main .input.menu .extra i {
+  -webkit-transform: rotate(160deg);
+          transform: rotate(160deg);
 }
 
 html > body main .input.inactive {
@@ -172,6 +181,13 @@ html > body main .input .k-holder {
   position: absolute;
   bottom: 0;
   overflow: hidden;
+  -webkit-transition: .2s ease transform;
+  transition: .2s ease transform;
+}
+
+html > body main .input .k-holder.inactive {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 
 html > body main .input .k-holder #keyboard {
@@ -242,5 +258,22 @@ html > body main .input .k-holder #keyboard-small .min-key.up {
 html > body main .input .k-holder #keyboard-small.active {
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+html > body main .input .menu-holder {
+  position: absolute;
+  bottom: 0;
+  height: calc(22.5vh * 2);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: .2s ease transform;
+  transition: .2s ease transform;
+}
+
+html > body main .input .menu-holder.active {
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 /*# sourceMappingURL=style.css.map */
