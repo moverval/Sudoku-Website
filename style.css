@@ -1,0 +1,246 @@
+html > body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background: #E3E3E3;
+  min-height: 600px;
+}
+
+html > body header {
+  z-index: 5000;
+  width: 100%;
+  height: 4vh;
+  position: fixed;
+}
+
+html > body header .title {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #E1E1E1;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding: 0 20px;
+  font-size: 1.7vh;
+  line-height: 4vh;
+  color: #151519;
+  font-weight: 300;
+}
+
+html > body main .main__title-space {
+  height: 4vh;
+  width: 100%;
+}
+
+html > body main .space__center {
+  position: absolute;
+  top: calc(4vh + 80vmin/2 + (100vh - 4vh - 25vh - 80vmin) / 2);
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+html > body main .space__center #sudoku {
+  border-collapse: collapse;
+  display: table;
+  table-layout: fixed;
+  width: 80vmin;
+  height: 80vmin;
+}
+
+html > body main .space__center #sudoku > tr > td {
+  display: table-cell;
+  width: calc(80vmin / 9);
+  height: calc(80vmin / 9);
+  text-align: center;
+  border: 1px solid #909090;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4vmin;
+  font-weight: 300;
+  color: #606060;
+  cursor: pointer;
+  -ms-user-select: none;
+      user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -webkit-transition: color .2s ease;
+  transition: color .2s ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  z-index: 1;
+  overflow: hidden;
+}
+
+html > body main .space__center #sudoku > tr > td table {
+  position: relative;
+  padding: 0;
+  border-collapse: collapse;
+  border: none;
+  width: calc(80vmin / 9);
+  height: calc(80vmin / 9);
+  margin: 0;
+}
+
+html > body main .space__center #sudoku > tr > td table td {
+  padding: 0;
+  border: none;
+  width: calc(80vmin / 27);
+  height: calc(80vmin / 27);
+  font-size: calc(calc(80vmin / 27) / 2);
+}
+
+html > body main .space__center #sudoku td.box-straight {
+  background: #d7d7d7;
+}
+
+html > body main .space__center #sudoku td.selected {
+  color: #404040;
+  background: #d4d4d4;
+}
+
+html > body main .space__center #sudoku td.selected.box-straight {
+  background: #c2c2c2;
+}
+
+html > body main .space__center #sudoku td.selected.invalid {
+  color: #FF4545;
+  background: #FF9090;
+}
+
+html > body main .space__center #sudoku td.solid {
+  color: #151515;
+}
+
+html > body main .space__center .buttons {
+  width: 100%;
+  height: 3vh;
+  margin: 2vh 0;
+}
+
+html > body main .space__center .buttons #new-sudoku {
+  width: 20%;
+  height: 3vh;
+  background: #E3E3E3;
+  border: #505050 1px solid;
+}
+
+html > body main .space__center .buttons #solve-sudoku {
+  width: 20%;
+  height: 3vh;
+  float: right;
+}
+
+html > body main .input {
+  overflow: hidden;
+  position: fixed;
+  -webkit-box-shadow: 0 -1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 -1px 2px 1px rgba(0, 0, 0, 0.2);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25vh;
+  background: #d9d9d9;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: .1s ease transform;
+  transition: .1s ease transform;
+}
+
+html > body main .input.inactive {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+html > body main .input .extra {
+  width: 100%;
+  height: 2.5vh;
+  background: #dedede;
+  text-align: center;
+  z-index: 50;
+  position: relative;
+}
+
+html > body main .input .extra i {
+  margin: 0 20px;
+  line-height: 2.5vh;
+  font-size: 1.38889vh;
+  color: #454545;
+}
+
+html > body main .input .k-holder {
+  width: 100%;
+  height: 22.5vh;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+}
+
+html > body main .input .k-holder #keyboard {
+  height: 22.5vh;
+  width: 100%;
+  background: gainsboro;
+  border-collapse: collapse;
+  position: absolute;
+  bottom: 0;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  z-index: 5;
+}
+
+html > body main .input .k-holder #keyboard .key {
+  background: #dedede;
+  margin: 0;
+  outline: none;
+  line-height: 22.5vh/2;
+  text-align: center;
+  font-size: 4vh;
+  color: #101010;
+  width: calc(100% / 5);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html > body main .input .k-holder #keyboard.active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+html > body main .input .k-holder #keyboard-small {
+  height: 22.5vh;
+  width: 100%;
+  background: gainsboro;
+  border-collapse: collapse;
+  position: absolute;
+  bottom: 0;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  z-index: 5;
+}
+
+html > body main .input .k-holder #keyboard-small .min-key {
+  background: #dedede;
+  margin: 0;
+  outline: none;
+  line-height: 22.5vh/2;
+  text-align: center;
+  font-size: 2.7vh;
+  color: #101010;
+  width: calc(100% / 5);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html > body main .input .k-holder #keyboard-small .min-key.up {
+  font-size: 4vh;
+}
+
+html > body main .input .k-holder #keyboard-small.active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+/*# sourceMappingURL=style.css.map */

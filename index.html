@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+</head>
+<body>
+    <header>
+        <h1 class="title">Sudoku</h1>
+        <div class="buttons">
+            <button id="new-sudoku">New Sudoku</button>
+            <button id="solve-sudoku">Solve</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="main__title-space"></div>
+        <div class="space__center">
+            <table id="sudoku"></table>
+        </div>
+        
+        <div class="input inactive" id="main-input">
+            <div class="extra">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="k-holder">
+                <table id="keyboard" class="active">
+                    <tr class="keyboard row">
+                        <td class="key one">1</td>
+                        <td class="key two">2</td>
+                        <td class="key three">3</td>
+                        <td class="key four">4</td>
+                        <td class="key five">5</td>
+                    </tr>
+                    <tr class="keyboard row">
+                        <td class="key six">6</td>
+                        <td class="key seven">7</td>
+                        <td class="key eight">8</td>
+                        <td class="key nine">9</td>
+                        <td class="key down"><i class="fas fa-sort-amount-down" id="keyboard__to-keyboard-small"></i></td>
+                    </tr>
+                </table>
+    
+                <table id="keyboard-small">
+                    <tr class="keyboard row">
+                        <td class="min-key one">1</td>
+                        <td class="min-key two">2</td>
+                        <td class="min-key three">3</td>
+                        <td class="min-key four">4</td>
+                        <td class="min-key up"><i class="fas fa-sort-amount-up" id="keyboard-small__to-keyboard"></i></td>
+                    </tr>
+                    <tr class="keyboard row">
+                        <td class="min-key five">5</td>
+                        <td class="min-key six">6</td>
+                        <td class="min-key seven">7</td>
+                        <td class="min-key eight">8</td>
+                        <td class="min-key nine">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="sudoku.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
