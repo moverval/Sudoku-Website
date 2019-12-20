@@ -1,7 +1,7 @@
 const sudokuElement = document.getElementById("sudoku");
 const btnNewSudoku = document.getElementById("new-sudoku");
 const btnSolveSudoku = document.getElementById("solve-sudoku");
-const boxElements = sudokuElement.getElementsByTagName("td");
+const boxElements = sudokuElement.getElementsByClassName("box");
 const keyboardElement = document.getElementById("keyboard");
 const keyboardSmallElement = document.getElementById("keyboard-small");
 const keyboardToKeyboardSmallElement = document.getElementById("keyboard__to-keyboard-small");
@@ -22,6 +22,7 @@ let selectedBoxIndex = -1;
         for(let x = 0; x < 9; x++) {
             const boxData = Sudoku.Util.indexToCasteData(y * 9 + x);
             const td = document.createElement("td");
+            td.classList.add("box");
             tr.appendChild(td);
             if(boxData.boxArrayIndex % 2 === 0) {
                 td.classList.add("box-straight");
@@ -63,14 +64,23 @@ let selectedBoxIndex = -1;
     });
 
     Array.from(keyboardKeyElements).forEach(function(key) {
-        key.addEventListener("click", function(event) {
-            if(selectedBox && !selectedBox.classList.contains("solid")) {
-                selectedBox.innerText = key.innerText;
-                table.real[parseInt(selectedBox.dataset.index)].set("\xa0" + key.innerText + "\xa0");
-                selectedBox.classList.add("full-number");
-                selectedBox.classList.remove("multiple-numbers");
-            }
-        });
+        if(!key.classList.contains("down")) {
+            key.addEventListener("click", function(event) {
+                if(selectedBox && !selectedBox.classList.contains("solid")) {
+                    if(selectedBox.innerText === key.innerText) {
+                        selectedBox.innerText = "\xa0\xa0\xa0";
+                        table.real[parseInt(selectedBox.dataset.index)].set(0);
+                        selectedBox.classList.remove("full-number");
+                        selectedBox.classList.remove("multiple-numbers");
+                    } else {
+                        selectedBox.innerText = key.innerText;
+                        table.real[parseInt(selectedBox.dataset.index)].set(key.innerText);
+                        selectedBox.classList.add("full-number");
+                        selectedBox.classList.remove("multiple-numbers");
+                    }
+                }
+            });
+        }
     });
 
     Array.from(smallKeyboardKeyElements).forEach(function(key) {
@@ -83,8 +93,8 @@ let selectedBoxIndex = -1;
                     }
                     selectedBox.classList.add("multiple-numbers");
                     selectedBox.classList.remove("full-number");
+                    table.real[parseInt(selectedBox.dataset.index)].set(0);
     
-                    const table = selectedBox.getElementsByTagName("table");
                     const td = selectedBox.getElementsByTagName("td");
                     if(td[parseInt(key.innerText) - 1].innerText.length > 0) {
                         td[parseInt(key.innerText) - 1].innerText = "";

@@ -85,7 +85,7 @@ html > body main .space__center #sudoku > tr > td table td {
   border: none;
   width: calc(80vmin / 27);
   height: calc(80vmin / 27);
-  font-size: calc(calc(80vmin / 27) / 2);
+  font-size: calc(calc(80vmin / 27) / 1.5);
 }
 
 html > body main .space__center #sudoku td.box-straight {
