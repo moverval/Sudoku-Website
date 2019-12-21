@@ -263,6 +263,7 @@ html > body main .input .k-holder #keyboard-small.active {
 html > body main .input .menu-holder {
   position: absolute;
   bottom: 0;
+  width: 100%;
   height: calc(22.5vh * 2);
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
@@ -275,5 +276,88 @@ html > body main .input .menu-holder.active {
           transition-delay: .3s;
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+
+html > body main .input .menu-holder .container {
+  width: 80%;
+  margin: auto;
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku {
+  width: 29vw;
+  height: 7vh;
+  background: #e6e6e6;
+  border-radius: 2.33333vh;
+  position: relative;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .title {
+  line-height: 7vh;
+  font-size: calc(7vh / 4);
+  text-align: left;
+  margin: 0 calc(29vw / 10);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder {
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .difficulty {
+  margin: 3px 0;
+  width: calc(7vh / 3);
+  height: calc(7vh / 3);
+  text-align: center;
+  line-height: calc(7vh / 3);
+  font-size: calc(7vh / 3);
+  font-family: Arial, Helvetica, sans-serif;
+  background: #d9d9d9;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 7vh;
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .difficulty i {
+  pointer-events: none;
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder {
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  -webkit-transition: height .3s ease;
+  transition: height .3s ease;
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder.active {
+  height: auto;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(7vh / 3);
+  background: #ebebeb;
+  padding: 14px;
+  border-radius: 5px;
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list li {
+  padding: 10px 0;
 }
 /*# sourceMappingURL=style.css.map */

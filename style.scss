@@ -256,6 +256,7 @@ html > {
                 .menu-holder {
                     position: absolute;
                     bottom: 0;
+                    width: 100%;
                     height: calc(#{$keyboardHeight} * 2);
                     transform: translateX(-100%);
                     transition: .2s ease transform;
@@ -263,6 +264,88 @@ html > {
                     &.active {
                         transition-delay: .3s;
                         transform: translateX(0);
+                    }
+
+                    .container {
+                        width: 80%;
+                        margin: auto;
+
+                        .buttons {
+                            #new-sudoku {
+                                $nsWidth: 29vw; // NS = new sudoku
+                                $nsHeight: 7vh;
+                                width: $nsWidth;
+                                height: $nsHeight;
+                                background: lighten(#E1E1E1, 2%);
+                                border-radius: $nsHeight / 3;
+                                position: relative;
+                                box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
+                                
+                                .title {
+                                    line-height: $nsHeight;
+                                    font-size: calc(#{$nsHeight} / 4);
+                                    text-align: left;
+                                    margin: 0 calc(#{$nsWidth} / 10);
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    font-weight: 700;
+                                    pointer-events: none;
+                                }
+                                
+                                .difficulty-holder {
+                                    position: absolute;
+                                    left: 75%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+    
+                                    .difficulty {
+                                        margin: 3px 0;
+                                        width: calc(#{$nsHeight} / 3);
+                                        height: calc(#{$nsHeight} / 3);
+                                        text-align: center;
+                                        line-height: calc(#{$nsHeight} / 3);
+                                        font-size: calc(#{$nsHeight} / 3);
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        background: darken(#E1E1E1, 3%);
+                                        box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
+                                        padding: 8px;
+                                        border-radius: $nsHeight;
+
+                                        i {
+                                            pointer-events: none;
+                                        }
+                                    }
+        
+                                    .list-holder {
+                                        overflow: hidden;
+                                        position: absolute;
+                                        top: 100%;
+                                        left: 0;
+                                        height: 0;
+                                        transition: height .3s ease;
+
+                                        &.active {
+                                            height: auto;
+                                            box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
+                                        }
+
+                                        .list {
+                                            padding: 0;
+                                            margin: 0;
+                                            list-style: none;
+                                            font-family: Arial, Helvetica, sans-serif;
+                                            font-size: calc(#{$nsHeight} / 3);
+                                            background: lighten(#E1E1E1, 4%);
+                                            padding: 14px;
+                                            border-radius: 5px;
+    
+                                            li {
+                                                padding: 10px 0;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

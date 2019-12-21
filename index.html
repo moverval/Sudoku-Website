@@ -58,9 +58,24 @@
             </div>
 
             <div class="menu-holder" id="menu-holder">
-                <div class="buttons">
-                    <button id="new-sudoku">New Sudoku</button>
-                    <button id="solve-sudoku">Solve</button>
+                <div class="container">
+                    <div class="buttons">
+                        <div id="new-sudoku">
+                            <p class="title">Generate</p>
+                            <div class="difficulty-holder">
+                                <p class="difficulty" id="btn-new-sudoku__select-difficulty"><i class="fas fa-plus-circle"></i></p>
+                                <div class="list-holder" id="btn-new-sudoku__list-holder">
+                                    <ul class="list" id="btn-new-sudoku__list">
+                                        <li class="item">HARD</li>
+                                        <li class="item">MIDDLE</li>
+                                        <li class="item">EASY</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <button id="new-sudoku">New Sudoku</button> -->
+                        <button id="solve-sudoku">Solve</button>
+                    </div>
                 </div>
             </div>
         </div>

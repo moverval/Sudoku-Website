@@ -12,11 +12,16 @@ const smallKeyboardKeyElements = document.getElementsByClassName("min-key");
 const mainInputExtraElement = document.getElementById("main-input__extra");
 const kHolderElement = document.getElementById("k-holder");
 const menuHolderElement = document.getElementById("menu-holder");
+const buttonCreateSudokuSelectDifficultyElement = document.getElementById("btn-new-sudoku__select-difficulty");
+const buttonCreateSudokuListHolder = document.getElementById("btn-new-sudoku__list-holder");
+const buttonCreateSudokuList = document.getElementById("btn-new-sudoku__list");
 const table = new Sudoku.Table();
 
 let solved = false;
 let selectedBox = null;
 let selectedBoxIndex = -1;
+
+let sudokuModeSelected = "MIDDLE";
 
 (function() {
     for(let y = 0; y < 9; y++) {
@@ -138,6 +143,13 @@ function createSeveralNumberBox() {
     return table;
 }
 
+buttonCreateSudokuList.addEventListener("click", function(event) {
+    if(event.target.classList.contains("item")) {
+        sudokuModeSelected = event.target.innerText;
+        buttonCreateSudokuListHolder.classList.remove("active");
+    }
+});
+
 document.body.addEventListener("click", function(event) {
     if(event.target === document.body && selectedBox) {
         selectedBox.classList.remove("invalid");
@@ -159,8 +171,12 @@ keyboardToKeyboardSmallElement.addEventListener("click", function(event) {
 });
 
 btnNewSudoku.addEventListener("click", function(event) {
-    generateSudoku(table);
-    displayTable(table);
+    if(event.target === btnNewSudoku) {
+        generateSudoku(table);
+        displayTable(table);
+    } else if(event.target === buttonCreateSudokuSelectDifficultyElement) {
+        buttonCreateSudokuListHolder.classList.toggle("active");
+    }
 });
 
 btnSolveSudoku.addEventListener("click", function(event) {
@@ -175,7 +191,22 @@ function generateSudoku(table) {
     solved = false;
     table.clear();
     const rt = Sudoku.Backtrack.full(table, Sudoku.Backtrack.Generation);
-    Sudoku.Erase.createFillable(table, Sudoku.Erase.Mode.HARDEST, Sudoku.Erase.Checkover.CLEAN);
+    let mode = null;
+    switch(sudokuModeSelected) {
+        case "HARD":
+            mode = Sudoku.Erase.Mode.HARDEST;
+        break;
+
+        case "EASY":
+            mode = 16;
+        break;
+
+        case "MIDDLE":
+        default:
+            mode = 36;
+        break;
+    }
+    Sudoku.Erase.createFillable(table, mode, Sudoku.Erase.Checkover.CLEAN);
     return rt;
 }
 
