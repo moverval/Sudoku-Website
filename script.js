@@ -303,7 +303,7 @@ function tableFilledBoxesEqual(table, fullTable) {
     for(let i = 0; i < 9; i++) {
         for(let j = 0; j < 9; j++) {
             const number = table.rows[i].get(j).get();
-            if(number > 0 && number !== fullTable.rows[i].get(j).get()) {
+            if(number > 0 && number != fullTable.rows[i].get(j).get()) {
                 arr.push(i * 9 + j);
             }
         }
