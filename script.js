@@ -25,6 +25,7 @@ let selectedBoxIndex = -1;
 
 let sudokuModeSelected = "MIDDLE";
 let markingErrors = false;
+let sudokuCorrectlyFilled = false;
 
 (function() {
     for(let y = 0; y < 9; y++) {
@@ -54,6 +55,8 @@ let markingErrors = false;
         ++boxCount;
         box.dataset.index = boxIndex;
         box.addEventListener("click", function(event) {
+            if(sudokuCorrectlyFilled)
+                return;
             if(selectedBoxIndex !== boxIndex) {
                 if(selectedBox) {
                     selectedBox.classList.remove("selected");
@@ -93,6 +96,12 @@ let markingErrors = false;
                             } else {
                                 selectedBox.classList.remove("error");
                             }
+                        }
+                        if(sudokuCorrect(table, fullTable)) {
+                            sudokuCorrectlyFilled = true;
+                            mainInputElement.classList.add("inactive");
+                            sudokuElement.classList.add("correct");
+                            createSolvedElement();
                         }
                     }
                 }
@@ -215,7 +224,38 @@ btnSolveSudoku.addEventListener("click", function(event) {
     }
 });
 
+function createSolvedElement() {
+    const sudokuSolvedElement = document.createElement("div");
+    sudokuSolvedElement.classList.add("sudoku-solved");
+
+    const buttonElement = document.createElement("div");
+    buttonElement.classList.add("button");
+
+    const buttonTitleElement = document.createElement("p");
+    buttonTitleElement.classList.add("title");
+    buttonTitleElement.innerText = "Next";
+
+    const textElement = document.createElement("p");
+    textElement.classList.add("text");
+    textElement.innerText = "Sudoku Solved!";
+
+    buttonElement.addEventListener("click", function(event) {
+        generateSudoku(table);
+        displayTable(table);
+        sudokuSolvedElement.remove();
+    });
+
+    buttonElement.appendChild(buttonTitleElement);
+    
+    sudokuSolvedElement.appendChild(buttonElement);
+    sudokuSolvedElement.appendChild(textElement);
+
+    document.getElementsByTagName("main")[0].appendChild(sudokuSolvedElement);
+}
+
 function generateSudoku(table) {
+    sudokuElement.classList.remove("correct");
+    sudokuCorrectlyFilled = false;
     solved = false;
     table.clear();
     const rt = Sudoku.Backtrack.full(table, Sudoku.Backtrack.Generation);
@@ -250,7 +290,6 @@ function displayTable(table) {
                 boxElements[y * 9 + x].innerText = table.real[y * 9 + x].isEmpty() ? "\xa0\xa0\xa0" : table.real[y * 9 + x].get();
                 if(!table.real[y * 9 + x].isChangeable()) {
                     boxElements[y * 9 + x].classList.add("solid");
-
                 }
             }
         }
@@ -270,6 +309,18 @@ function tableFilledBoxesEqual(table, fullTable) {
         }
     }
     return arr;
+}
+
+function sudokuCorrect(table, fullTable) {
+    for(let i = 0; i < 9; i++) {
+        for(let j = 0; j < 9; j++) {
+            const number = table.rows[i].get(j).get();
+            if(number === 0 || number != fullTable.rows[i].get(j).get()) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 function solveSudoku(table) {

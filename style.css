@@ -68,6 +68,8 @@ html > body main .space__center #sudoku > tr > td {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   z-index: 1;
   overflow: hidden;
+  -webkit-transition: background .5s ease;
+  transition: background .5s ease;
 }
 
 html > body main .space__center #sudoku > tr > td table {
@@ -112,6 +114,14 @@ html > body main .space__center #sudoku td.error {
 
 html > body main .space__center #sudoku td.solid {
   color: #151515;
+}
+
+html > body main .space__center #sudoku.correct td.selected {
+  background: #606060;
+}
+
+html > body main .space__center #sudoku.correct td.selected.box-straight {
+  background: #d7d7d7;
 }
 
 html > body main .space__center .buttons {
@@ -452,5 +462,38 @@ html > body main .input .menu-holder .container .toggles .toggle .object {
 
 html > body main .input .menu-holder .container .toggles .toggle.active .object {
   background: #45D045;
+}
+
+html > body main .sudoku-solved {
+  position: fixed;
+  bottom: 1vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+html > body main .sudoku-solved .text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4vh;
+  color: black;
+}
+
+html > body main .sudoku-solved .button {
+  pointer-events: all;
+  position: relative;
+  margin: 2vh 0 0 0;
+  display: inline-block;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+html > body main .sudoku-solved .button .title {
+  pointer-events: none;
+  line-height: 7vh;
+  font-size: calc(7vh / 4);
+  text-align: left;
+  margin: 0 calc(29vw / 10);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
 }
 /*# sourceMappingURL=style.css.map */
