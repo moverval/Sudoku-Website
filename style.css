@@ -106,6 +106,10 @@ html > body main .space__center #sudoku td.selected.invalid {
   background: #FF9090;
 }
 
+html > body main .space__center #sudoku td.error {
+  color: #FF4545;
+}
+
 html > body main .space__center #sudoku td.solid {
   color: #151515;
 }
@@ -281,6 +285,13 @@ html > body main .input .menu-holder.active {
 html > body main .input .menu-holder .container {
   width: 80%;
   margin: auto;
+  pointer-events: none;
+}
+
+html > body main .input .menu-holder .container .buttons {
+  width: 50%;
+  display: inline-block;
+  pointer-events: none;
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku {
@@ -291,6 +302,7 @@ html > body main .input .menu-holder .container .buttons #new-sudoku {
   position: relative;
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  pointer-events: all;
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .title {
@@ -338,38 +350,49 @@ html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty
   height: 0;
   -webkit-transition: height .3s ease;
   transition: height .3s ease;
+  border-radius: 10px;
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder.active {
+  z-index: 30;
   height: auto;
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list {
+  z-index: 30;
   padding: 0;
   margin: 0;
   list-style: none;
   font-family: Arial, Helvetica, sans-serif;
   font-size: calc(7vh / 3);
   background: #ebebeb;
-  padding: 14px;
-  border-radius: 5px;
+  color: #303030;
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list li {
-  padding: 10px 0;
+  text-align: center;
+  padding: 10px 10px;
+  color: #101010;
+}
+
+html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list li:nth-child(even) {
+  background: #d4d4d4;
 }
 
 html > body main .input .menu-holder .container .buttons #solve-sudoku {
+  pointer-events: all;
+  position: relative;
+  float: left;
   margin: 2vh 0 0 0;
   width: 29vw;
   height: 7vh;
   background: #e6e6e6;
   border-radius: 2.33333vh;
-  position: relative;
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  z-index: -1;
 }
 
 html > body main .input .menu-holder .container .buttons #solve-sudoku .title {
@@ -380,5 +403,54 @@ html > body main .input .menu-holder .container .buttons #solve-sudoku .title {
   margin: 0 calc(29vw / 10);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
+}
+
+html > body main .input .menu-holder .container .toggles {
+  width: 50%;
+  float: right;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+html > body main .input .menu-holder .container .toggles .toggle {
+  position: relative;
+  width: 29vw;
+  height: 7vh;
+  background: #e6e6e6;
+  border-radius: 2.33333vh;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  pointer-events: all;
+}
+
+html > body main .input .menu-holder .container .toggles .toggle .title {
+  pointer-events: none;
+  line-height: 7vh;
+  font-size: calc(7vh / 4);
+  text-align: left;
+  margin: 0 calc(29vw / 10);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+html > body main .input .menu-holder .container .toggles .toggle .object {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 80%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: #FF4545;
+  border-radius: 5px;
+  -webkit-transition: background .5s ease;
+  transition: background .5s ease;
+  pointer-events: none;
+}
+
+html > body main .input .menu-holder .container .toggles .toggle.active .object {
+  background: #45D045;
 }
 /*# sourceMappingURL=style.css.map */

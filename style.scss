@@ -108,6 +108,11 @@ html > {
                             background: #FF9090;
                         }
                     }
+
+                    td.error {
+                        color: #FF4545;
+                        // background: #FF9090;
+                    }
     
                     td.solid {
                         color: #151515;
@@ -269,8 +274,13 @@ html > {
                     .container {
                         width: 80%;
                         margin: auto;
+                        pointer-events: none;
 
                         .buttons {
+                            width: 50%;
+                            display: inline-block;
+                            pointer-events: none;
+
                             #new-sudoku {
                                 $nsWidth: 29vw; // NS = new sudoku
                                 $nsHeight: 7vh;
@@ -280,6 +290,7 @@ html > {
                                 border-radius: $nsHeight / 3;
                                 position: relative;
                                 box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
+                                pointer-events: all;
                                 
                                 .title {
                                     line-height: $nsHeight;
@@ -322,24 +333,33 @@ html > {
                                         left: 0;
                                         height: 0;
                                         transition: height .3s ease;
+                                        border-radius: 10px;
 
                                         &.active {
+                                            z-index: 30;
                                             height: auto;
                                             box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
                                         }
 
                                         .list {
+                                            z-index: 30;
                                             padding: 0;
                                             margin: 0;
                                             list-style: none;
                                             font-family: Arial, Helvetica, sans-serif;
                                             font-size: calc(#{$nsHeight} / 3);
                                             background: lighten(#E1E1E1, 4%);
-                                            padding: 14px;
-                                            border-radius: 5px;
+                                            color: #303030;
     
                                             li {
-                                                padding: 10px 0;
+                                                text-align: center;
+                                                padding: 10px 10px;
+                                                color: #101010;
+                                                // border-top: 3px solid #505050;
+
+                                                &:nth-child(even) {
+                                                    background: darken(#E1E1E1, 5%);
+                                                }
                                             }
                                         }
                                     }
@@ -347,6 +367,9 @@ html > {
                             }
 
                             #solve-sudoku {
+                                pointer-events: all;
+                                position: relative;
+                                float: left;
                                 margin: 2vh 0 0 0;
                                 $ssWidth: 29vw; // SS = solve sudoku
                                 $ssHeight: 7vh;
@@ -354,8 +377,8 @@ html > {
                                 height: $ssHeight;
                                 background: lighten(#E1E1E1, 2%);
                                 border-radius: $ssHeight / 3;
-                                position: relative;
                                 box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
+                                z-index: -1;
 
                                 .title {
                                     pointer-events: none;
@@ -365,6 +388,52 @@ html > {
                                     margin: 0 calc(#{$ssWidth} / 10);
                                     font-family: Arial, Helvetica, sans-serif;
                                     font-weight: 700;
+                                }
+                            }
+                        }
+
+                        .toggles {
+                            width: 50%;
+                            float: right;
+                            align-self: center;
+
+                            .toggle {
+                                position: relative;
+                                $width: 29vw;
+                                $height: 7vh;
+                                width: $width;
+                                height: $height;
+                                background: lighten(#E1E1E1, 2%);
+                                border-radius: $height / 3;
+                                box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
+                                pointer-events: all;
+
+                                .title {
+                                    pointer-events: none;
+                                    line-height: $height;
+                                    font-size: calc(#{$height} / 4);
+                                    text-align: left;
+                                    margin: 0 calc(#{$width} / 10);
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    font-weight: 700;
+                                    pointer-events: none;
+                                }
+
+                                .object {
+                                    width: 15px;
+                                    height: 15px;
+                                    position: absolute;
+                                    left: 80%;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    background: #FF4545;
+                                    border-radius: 5px;
+                                    transition: background .5s ease;
+                                    pointer-events: none;
+                                }
+
+                                &.active .object {
+                                    background: #45D045;
                                 }
                             }
                         }

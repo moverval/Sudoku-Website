@@ -15,13 +15,16 @@ const menuHolderElement = document.getElementById("menu-holder");
 const buttonCreateSudokuSelectDifficultyElement = document.getElementById("btn-new-sudoku__select-difficulty");
 const buttonCreateSudokuListHolder = document.getElementById("btn-new-sudoku__list-holder");
 const buttonCreateSudokuList = document.getElementById("btn-new-sudoku__list");
+const switchMarkErrorsElement = document.getElementById("switch-mark-errors");
 const table = new Sudoku.Table();
+let fullTable = null;
 
 let solved = false;
 let selectedBox = null;
 let selectedBoxIndex = -1;
 
 let sudokuModeSelected = "MIDDLE";
+let markingErrors = false;
 
 (function() {
     for(let y = 0; y < 9; y++) {
@@ -40,7 +43,6 @@ let sudokuModeSelected = "MIDDLE";
 
     if(generateSudoku(table)) {
         displayTable(table);
-        
     } else {
         console.error("Generation failed");
     }
@@ -85,6 +87,14 @@ let sudokuModeSelected = "MIDDLE";
                         table.real[parseInt(selectedBox.dataset.index)].set(key.innerText);
                         selectedBox.classList.add("full-number");
                         selectedBox.classList.remove("multiple-numbers");
+                        if(markingErrors) {
+                            if(parseInt(key.innerText) !== fullTable.real[parseInt(selectedBox.dataset.index)].get()) {
+                                console.log(fullTable.real[parseInt(selectedBox.dataset.index)].get());
+                                selectedBox.classList.add("error");
+                            } else {
+                                selectedBox.classList.remove("error");
+                            }
+                        }
                     }
                 }
             });
@@ -170,8 +180,26 @@ keyboardToKeyboardSmallElement.addEventListener("click", function(event) {
     keyboardElement.classList.remove("active");
 });
 
+switchMarkErrorsElement.addEventListener("click", function(event) {
+    switchMarkErrorsElement.classList.toggle("active");
+    if(switchMarkErrorsElement.classList.contains("active")) {
+        let index = -1;
+        markingErrors = true;
+        const errors = tableFilledBoxesEqual(table, fullTable);
+        errors.forEach(function(id) {
+            boxElements[id].classList.add("error");
+        });
+    } else {
+        markingErrors = false;
+        Array.from(boxElements).forEach(function(box) {
+            box.classList.remove("error");
+        });
+    }
+});
+
 btnNewSudoku.addEventListener("click", function(event) {
     if(event.target === btnNewSudoku) {
+        solved = false;
         generateSudoku(table);
         displayTable(table);
     } else if(event.target === buttonCreateSudokuSelectDifficultyElement) {
@@ -191,6 +219,7 @@ function generateSudoku(table) {
     solved = false;
     table.clear();
     const rt = Sudoku.Backtrack.full(table, Sudoku.Backtrack.Generation);
+    fullTable = new Sudoku.Table(table);
     let mode = null;
     switch(sudokuModeSelected) {
         case "HARD":
@@ -228,6 +257,19 @@ function displayTable(table) {
     } else {
         console.error("Sudoku display does not have 81 cells...");
     }
+}
+
+function tableFilledBoxesEqual(table, fullTable) {
+    const arr = [];
+    for(let i = 0; i < 9; i++) {
+        for(let j = 0; j < 9; j++) {
+            const number = table.rows[i].get(j).get();
+            if(number > 0 && number !== fullTable.rows[i].get(j).get()) {
+                arr.push(i * 9 + j);
+            }
+        }
+    }
+    return arr;
 }
 
 function solveSudoku(table) {
