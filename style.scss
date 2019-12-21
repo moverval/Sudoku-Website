@@ -345,6 +345,28 @@ html > {
                                     }
                                 }
                             }
+
+                            #solve-sudoku {
+                                margin: 2vh 0 0 0;
+                                $ssWidth: 29vw; // SS = solve sudoku
+                                $ssHeight: 7vh;
+                                width: $ssWidth;
+                                height: $ssHeight;
+                                background: lighten(#E1E1E1, 2%);
+                                border-radius: $ssHeight / 3;
+                                position: relative;
+                                box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
+
+                                .title {
+                                    pointer-events: none;
+                                    line-height: $ssHeight;
+                                    font-size: calc(#{$ssHeight} / 4);
+                                    text-align: left;
+                                    margin: 0 calc(#{$ssWidth} / 10);
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    font-weight: 700;
+                                }
+                            }
                         }
                     }
                 }

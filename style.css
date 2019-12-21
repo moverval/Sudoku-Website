@@ -360,4 +360,25 @@ html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list li {
   padding: 10px 0;
 }
+
+html > body main .input .menu-holder .container .buttons #solve-sudoku {
+  margin: 2vh 0 0 0;
+  width: 29vw;
+  height: 7vh;
+  background: #e6e6e6;
+  border-radius: 2.33333vh;
+  position: relative;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+html > body main .input .menu-holder .container .buttons #solve-sudoku .title {
+  pointer-events: none;
+  line-height: 7vh;
+  font-size: calc(7vh / 4);
+  text-align: left;
+  margin: 0 calc(29vw / 10);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
 /*# sourceMappingURL=style.css.map */
