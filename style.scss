@@ -8,7 +8,7 @@ html > {
         height: 100vh;
 
         margin: 0;
-        background: #E3E3E3;
+        background: var(--background-color);
         min-height: 600px;
 
         header {
@@ -19,13 +19,13 @@ html > {
 
             .title {
                 font-family: Arial, Helvetica, sans-serif;
-                background: #E1E1E1;
+                background: var(--main-type-color);
                 box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
                 margin: 0;
                 padding: 0 20px;
                 font-size: 1.7vh;
                 line-height: $headerHeight;
-                color: #151519;
+                color: var(--title-font-color);
                 font-weight: 300;
             }
         }
@@ -56,11 +56,11 @@ html > {
                         width: $size;
                         height: $size;
                         text-align: center;
-                        border: 1px solid #909090;
+                        border: 1px solid var(--sudoku-border-color);
                         font-family: Arial, Helvetica, sans-serif;
                         font-size: 4vmin;
                         font-weight: 300;
-                        color: #606060;
+                        color: var(--sudoku-cell-font-color);
                         cursor: pointer;
                         user-select: none;
                         -webkit-user-select: none;
@@ -92,61 +92,40 @@ html > {
                     }
     
                     td.box-straight {
-                        background: darken(#E1E1E1, 4%);
+                        background: var(--sudoku-cell-straight-background-color);
                     }
 
                     td.selected {
-                        color: #404040;
+                        color: var(--sudoku-cell-selected-font-color);
                         
-                        background: darken(#E1E1E1, 5%);
+                        background: var(--sudoku-cell-selected-background-color);
 
                         &.box-straight {
-                            background: darken(#E1E1E1, 12%);
+                            background: var(--sudoku-cell-selected-straight-background-color);
                         }
 
                         &.invalid {
-                            color: #FF4545;
-                            background: #FF9090;
+                            color: var(--sudoku-cell-selected-invalid-font-color);
+                            background: var(--sudoku-cell-selected-invalid-background-color);
                         }
                     }
 
                     td.error {
-                        color: #FF4545;
+                        color: var(--sudoku-cell-error-font-color);
                         // background: #FF9090;
                     }
     
                     td.solid {
-                        color: #151515;
+                        color: var(--sudoku-cell-solid-font-color);
                     }
 
                     // &.correct
                     &.correct td.selected {
-                        background: #606060;
+                        background: var(--sudoku-cell-selected-background-color);
 
                         &.box-straight {
-                            background: darken(#E1E1E1, 4%);
+                            background: var(--sudoku-cell-selected-straight-background-color);
                         }
-                    }
-                }
-
-                .buttons {
-                    width: 100%;
-                    height: 3vh;
-                    margin: 2vh 0;
-
-                    #new-sudoku {
-                        width: 20%;
-                        height: 3vh;
-                        //border-radius: 3vh;
-                        background: #E3E3E3;
-
-                        border: #505050 1px solid;
-                    }
-
-                    #solve-sudoku {
-                        width: 20%;
-                        height: 3vh;
-                        float: right;
                     }
                 }
             }
@@ -160,7 +139,7 @@ html > {
                 left: 0;
                 width: 100%;
                 height: $inputHeight;
-                background: darken(#E1E1E1, 1%);
+                background: var(--input-background-color);
                 transform: translateY(0);
                 transition: .1s ease transform, .2s ease height;
 
@@ -179,7 +158,7 @@ html > {
                 .extra {
                     width: 100%;
                     height: $extraHeight;
-                    background: darken(#E1E1E1, 1%);
+                    background: var(--input-background-color);
                     text-align: center;
                     z-index: 50;
                     position: relative;
@@ -188,7 +167,7 @@ html > {
                         margin: 0 20px;
                         line-height: $extraHeight;
                         font-size: $extraHeight / 1.8;
-                        color: #454545;
+                        color: var(--input-extra-symbol-color);
                     }
                 }
                 $keyboardHeight: #{$inputHeight - $extraHeight};
@@ -207,7 +186,7 @@ html > {
                     #keyboard {
                         height: $keyboardHeight;
                         width: 100%;
-                        background: darken(#E1E1E1, 2%);
+                        background: var(--input-keyboard-background-color);
                         border-collapse: collapse;
                         position: absolute;
                         bottom: 0;
@@ -216,14 +195,14 @@ html > {
                         z-index: 5;
         
                         .key {
-                            background: darken(#E1E1E1, 1%);
+                            background: var(--input-background-color);
                             // border: 2px solid #505050;
                             margin: 0;
                             outline: none;
                             line-height: $keyboardHeight / 2;
                             text-align: center;
                             font-size: 4vh;
-                            color: #101010;
+                            color: var(--input-keyboard-font-color);
                             width: calc(100% / 5);
                             font-family: Arial, Helvetica, sans-serif;
                         }
@@ -237,7 +216,7 @@ html > {
                         $keyboardHeight: #{$inputHeight - $extraHeight};
                         height: $keyboardHeight;
                         width: 100%;
-                        background: darken(#E1E1E1, 2%);
+                        background: var(--input-background-color);
                         border-collapse: collapse;
                         position: absolute;
                         bottom: 0;
@@ -246,14 +225,14 @@ html > {
                         z-index: 5;
         
                         .min-key {
-                            background: darken(#E1E1E1, 1%);
+                            background: var(--input-background-color);
                             // border: 2px solid #505050;
                             margin: 0;
                             outline: none;
                             line-height: $keyboardHeight / 2;
                             text-align: center;
                             font-size: 2.7vh;
-                            color: #101010;
+                            color: var(--input-keyboard-font-color);
                             width: calc(100% / 5);
                             font-family: Arial, Helvetica, sans-serif;
     
@@ -296,7 +275,7 @@ html > {
                                 $nsHeight: 7vh;
                                 width: $nsWidth;
                                 height: $nsHeight;
-                                background: lighten(#E1E1E1, 2%);
+                                background: var(--button-background-color);
                                 border-radius: $nsHeight / 3;
                                 position: relative;
                                 box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
@@ -310,6 +289,7 @@ html > {
                                     font-family: Arial, Helvetica, sans-serif;
                                     font-weight: 700;
                                     pointer-events: none;
+                                    color: var(--button-font-color);
                                 }
                                 
                                 .difficulty-holder {
@@ -326,13 +306,14 @@ html > {
                                         line-height: calc(#{$nsHeight} / 3);
                                         font-size: calc(#{$nsHeight} / 3);
                                         font-family: Arial, Helvetica, sans-serif;
-                                        background: darken(#E1E1E1, 3%);
+                                        background: var(--button-new-sudoku-background-color);
                                         box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
                                         padding: 8px;
                                         border-radius: $nsHeight;
 
                                         i {
                                             pointer-events: none;
+                                            color: var(--button-font-color);
                                         }
                                     }
         
@@ -358,17 +339,17 @@ html > {
                                             list-style: none;
                                             font-family: Arial, Helvetica, sans-serif;
                                             font-size: calc(#{$nsHeight} / 3);
-                                            background: lighten(#E1E1E1, 4%);
-                                            color: #303030;
+                                            background: var(--button-new-sudoku-list-background-color);
+                                            color: var(--button-new-sudoku-list-font-color);
     
                                             li {
                                                 text-align: center;
                                                 padding: 10px 10px;
-                                                color: #101010;
+                                                color: var(--button-new-sudoku-list-font-color);
                                                 // border-top: 3px solid #505050;
 
                                                 &:nth-child(even) {
-                                                    background: darken(#E1E1E1, 5%);
+                                                    background: var(--button-new-sudoku-list-second-background-color);
                                                 }
                                             }
                                         }
@@ -385,7 +366,7 @@ html > {
                                 $ssHeight: 7vh;
                                 width: $ssWidth;
                                 height: $ssHeight;
-                                background: lighten(#E1E1E1, 2%);
+                                background: var(--button-background-color);
                                 border-radius: $ssHeight / 3;
                                 box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
                                 z-index: -1;
@@ -398,6 +379,7 @@ html > {
                                     margin: 0 calc(#{$ssWidth} / 10);
                                     font-family: Arial, Helvetica, sans-serif;
                                     font-weight: 700;
+                                    color: var(--button-font-color);
                                 }
                             }
                         }
@@ -413,7 +395,7 @@ html > {
                                 $height: 7vh;
                                 width: $width;
                                 height: $height;
-                                background: lighten(#E1E1E1, 2%);
+                                background: var(--button-background-color);
                                 border-radius: $height / 3;
                                 box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
                                 pointer-events: all;
@@ -427,6 +409,7 @@ html > {
                                     font-family: Arial, Helvetica, sans-serif;
                                     font-weight: 700;
                                     pointer-events: none;
+                                    color: var(--button-font-color);
                                 }
 
                                 .object {
@@ -436,14 +419,14 @@ html > {
                                     left: 80%;
                                     top: 50%;
                                     transform: translateY(-50%);
-                                    background: #FF4545;
+                                    background: var(--switch-off-color);
                                     border-radius: 5px;
                                     transition: background .5s ease;
                                     pointer-events: none;
                                 }
 
                                 &.active .object {
-                                    background: #45D045;
+                                    background: var(--switch-on-color);
                                 }
                             }
                         }
@@ -461,7 +444,7 @@ html > {
                 .text {
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 4vh;
-                    color: black;
+                    color: var(--sudoku-solved-object-text-font-color);
                 }
 
                 .button {
@@ -482,9 +465,70 @@ html > {
                         margin: 0 calc(#{$width} / 10);
                         font-family: Arial, Helvetica, sans-serif;
                         font-weight: 700;
+                        color: var(--button-font-color);
                     }
                 }
             }
         }
+    }
+}
+
+:root {
+    --background-color: #E3E3E3;
+    --main-type-color: #E1E1E1;
+    --title-font-color: #151519;
+    --sudoku-border-color: #909090;
+    --sudoku-cell-font-color: #606060;
+    --sudoku-cell-straight-background-color: #d7d7d7;
+    --sudoku-cell-selected-straight-background-color: #c2c2c2;
+    --sudoku-cell-selected-font-color: #404040;
+    --sudoku-cell-selected-background-color: #d4d4d4;
+    --sudoku-cell-selected-invalid-font-color: #FF4545;
+    --sudoku-cell-selected-invalid-background-color: #FF9090;
+    --sudoku-cell-error-font-color: #FF4545;
+    --sudoku-cell-solid-font-color: #151515;
+    --input-background-color: #dedede;
+    --input-extra-symbol-color: #454545;
+    --input-keyboard-background-color: #dcdcdc;
+    --input-keyboard-font-color: #454545;
+    --button-background-color: #e6e6e6;
+    --button-new-sudoku-background-color: #e8e8e8;
+    --button-font-color: #202020;
+    --button-new-sudoku-list-background-color: #ebebeb;
+    --button-new-sudoku-list-font-color: #303030;
+    --button-new-sudoku-list-second-background-color: #d4d4d4;
+    --switch-off-color: #FF4545;
+    --switch-on-color: #45D045;
+    --sudoku-solved-object-text-font-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1c1c1d;
+        --main-type-color: #1e1e1f;
+        --title-font-color: #eaeae7;
+        --sudoku-border-color: #6f6f70;
+        --sudoku-cell-font-color: #9f9fA0;
+        --sudoku-cell-straight-background-color: #282829;
+        --sudoku-cell-selected-straight-background-color: #1c1c1d;
+        --sudoku-cell-selected-font-color: #bfbfc0;
+        --sudoku-cell-selected-background-color: #2b2b2c;
+        --sudoku-cell-selected-invalid-font-color: #FF4545;
+        --sudoku-cell-selected-invalid-background-color: #FF9090;
+        --sudoku-cell-error-font-color: #FF4545;
+        --sudoku-cell-solid-font-color: #eaeaeb;
+        --input-background-color: #212122;
+        --input-extra-symbol-color: #bababb;
+        --input-keyboard-background-color: #232324;
+        --input-keyboard-font-color: #bababb;
+        --button-background-color: #19191a;
+        --button-new-sudoku-background-color: #161617;
+        --button-font-color: #dfdfe0;
+        --button-new-sudoku-list-background-color: #141415;
+        --button-new-sudoku-list-font-color: #cfcfd0;
+        --button-new-sudoku-list-second-background-color: #2b2b2c;
+        --switch-off-color: #FF4545;
+        --switch-on-color: #45D045;
+        --sudoku-solved-object-text-font-color: #fff;
     }
 }

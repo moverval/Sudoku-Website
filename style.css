@@ -3,7 +3,7 @@ html > body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  background: #E3E3E3;
+  background: var(--background-color);
   min-height: 600px;
 }
 
@@ -16,14 +16,14 @@ html > body header {
 
 html > body header .title {
   font-family: Arial, Helvetica, sans-serif;
-  background: #E1E1E1;
+  background: var(--main-type-color);
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
   margin: 0;
   padding: 0 20px;
   font-size: 1.7vh;
   line-height: 4vh;
-  color: #151519;
+  color: var(--title-font-color);
   font-weight: 300;
 }
 
@@ -53,11 +53,11 @@ html > body main .space__center #sudoku > tr > td {
   width: calc(80vmin / 9);
   height: calc(80vmin / 9);
   text-align: center;
-  border: 1px solid #909090;
+  border: 1px solid var(--sudoku-border-color);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 4vmin;
   font-weight: 300;
-  color: #606060;
+  color: var(--sudoku-cell-font-color);
   cursor: pointer;
   -ms-user-select: none;
       user-select: none;
@@ -91,56 +91,37 @@ html > body main .space__center #sudoku > tr > td table td {
 }
 
 html > body main .space__center #sudoku td.box-straight {
-  background: #d7d7d7;
+  background: var(--sudoku-cell-straight-background-color);
 }
 
 html > body main .space__center #sudoku td.selected {
-  color: #404040;
-  background: #d4d4d4;
+  color: var(--sudoku-cell-selected-font-color);
+  background: var(--sudoku-cell-selected-background-color);
 }
 
 html > body main .space__center #sudoku td.selected.box-straight {
-  background: #c2c2c2;
+  background: var(--sudoku-cell-selected-straight-background-color);
 }
 
 html > body main .space__center #sudoku td.selected.invalid {
-  color: #FF4545;
-  background: #FF9090;
+  color: var(--sudoku-cell-selected-invalid-font-color);
+  background: var(--sudoku-cell-selected-invalid-background-color);
 }
 
 html > body main .space__center #sudoku td.error {
-  color: #FF4545;
+  color: var(--sudoku-cell-error-font-color);
 }
 
 html > body main .space__center #sudoku td.solid {
-  color: #151515;
+  color: var(--sudoku-cell-solid-font-color);
 }
 
 html > body main .space__center #sudoku.correct td.selected {
-  background: #606060;
+  background: var(--sudoku-cell-selected-background-color);
 }
 
 html > body main .space__center #sudoku.correct td.selected.box-straight {
-  background: #d7d7d7;
-}
-
-html > body main .space__center .buttons {
-  width: 100%;
-  height: 3vh;
-  margin: 2vh 0;
-}
-
-html > body main .space__center .buttons #new-sudoku {
-  width: 20%;
-  height: 3vh;
-  background: #E3E3E3;
-  border: #505050 1px solid;
-}
-
-html > body main .space__center .buttons #solve-sudoku {
-  width: 20%;
-  height: 3vh;
-  float: right;
+  background: var(--sudoku-cell-selected-straight-background-color);
 }
 
 html > body main .input {
@@ -152,7 +133,7 @@ html > body main .input {
   left: 0;
   width: 100%;
   height: 25vh;
-  background: #dedede;
+  background: var(--input-background-color);
   -webkit-transform: translateY(0);
           transform: translateY(0);
   -webkit-transition: .1s ease transform, .2s ease height;
@@ -176,7 +157,7 @@ html > body main .input.inactive {
 html > body main .input .extra {
   width: 100%;
   height: 2.5vh;
-  background: #dedede;
+  background: var(--input-background-color);
   text-align: center;
   z-index: 50;
   position: relative;
@@ -186,7 +167,7 @@ html > body main .input .extra i {
   margin: 0 20px;
   line-height: 2.5vh;
   font-size: 1.38889vh;
-  color: #454545;
+  color: var(--input-extra-symbol-color);
 }
 
 html > body main .input .k-holder {
@@ -207,7 +188,7 @@ html > body main .input .k-holder.inactive {
 html > body main .input .k-holder #keyboard {
   height: 22.5vh;
   width: 100%;
-  background: gainsboro;
+  background: var(--input-keyboard-background-color);
   border-collapse: collapse;
   position: absolute;
   bottom: 0;
@@ -221,13 +202,13 @@ html > body main .input .k-holder #keyboard {
 }
 
 html > body main .input .k-holder #keyboard .key {
-  background: #dedede;
+  background: var(--input-background-color);
   margin: 0;
   outline: none;
   line-height: 22.5vh/2;
   text-align: center;
   font-size: 4vh;
-  color: #101010;
+  color: var(--input-keyboard-font-color);
   width: calc(100% / 5);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -240,7 +221,7 @@ html > body main .input .k-holder #keyboard.active {
 html > body main .input .k-holder #keyboard-small {
   height: 22.5vh;
   width: 100%;
-  background: gainsboro;
+  background: var(--input-background-color);
   border-collapse: collapse;
   position: absolute;
   bottom: 0;
@@ -254,13 +235,13 @@ html > body main .input .k-holder #keyboard-small {
 }
 
 html > body main .input .k-holder #keyboard-small .min-key {
-  background: #dedede;
+  background: var(--input-background-color);
   margin: 0;
   outline: none;
   line-height: 22.5vh/2;
   text-align: center;
   font-size: 2.7vh;
-  color: #101010;
+  color: var(--input-keyboard-font-color);
   width: calc(100% / 5);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -307,7 +288,7 @@ html > body main .input .menu-holder .container .buttons {
 html > body main .input .menu-holder .container .buttons #new-sudoku {
   width: 29vw;
   height: 7vh;
-  background: #e6e6e6;
+  background: var(--button-background-color);
   border-radius: 2.33333vh;
   position: relative;
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
@@ -323,6 +304,7 @@ html > body main .input .menu-holder .container .buttons #new-sudoku .title {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   pointer-events: none;
+  color: var(--button-font-color);
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder {
@@ -341,7 +323,7 @@ html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty
   line-height: calc(7vh / 3);
   font-size: calc(7vh / 3);
   font-family: Arial, Helvetica, sans-serif;
-  background: #d9d9d9;
+  background: var(--button-new-sudoku-background-color);
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
   padding: 8px;
@@ -350,6 +332,7 @@ html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .difficulty i {
   pointer-events: none;
+  color: var(--button-font-color);
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder {
@@ -377,18 +360,18 @@ html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty
   list-style: none;
   font-family: Arial, Helvetica, sans-serif;
   font-size: calc(7vh / 3);
-  background: #ebebeb;
-  color: #303030;
+  background: var(--button-new-sudoku-list-background-color);
+  color: var(--button-new-sudoku-list-font-color);
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list li {
   text-align: center;
   padding: 10px 10px;
-  color: #101010;
+  color: var(--button-new-sudoku-list-font-color);
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list li:nth-child(even) {
-  background: #d4d4d4;
+  background: var(--button-new-sudoku-list-second-background-color);
 }
 
 html > body main .input .menu-holder .container .buttons #solve-sudoku {
@@ -398,7 +381,7 @@ html > body main .input .menu-holder .container .buttons #solve-sudoku {
   margin: 2vh 0 0 0;
   width: 29vw;
   height: 7vh;
-  background: #e6e6e6;
+  background: var(--button-background-color);
   border-radius: 2.33333vh;
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
@@ -413,6 +396,7 @@ html > body main .input .menu-holder .container .buttons #solve-sudoku .title {
   margin: 0 calc(29vw / 10);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
+  color: var(--button-font-color);
 }
 
 html > body main .input .menu-holder .container .toggles {
@@ -427,7 +411,7 @@ html > body main .input .menu-holder .container .toggles .toggle {
   position: relative;
   width: 29vw;
   height: 7vh;
-  background: #e6e6e6;
+  background: var(--button-background-color);
   border-radius: 2.33333vh;
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
@@ -443,6 +427,7 @@ html > body main .input .menu-holder .container .toggles .toggle .title {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   pointer-events: none;
+  color: var(--button-font-color);
 }
 
 html > body main .input .menu-holder .container .toggles .toggle .object {
@@ -453,7 +438,7 @@ html > body main .input .menu-holder .container .toggles .toggle .object {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  background: #FF4545;
+  background: var(--switch-off-color);
   border-radius: 5px;
   -webkit-transition: background .5s ease;
   transition: background .5s ease;
@@ -461,7 +446,7 @@ html > body main .input .menu-holder .container .toggles .toggle .object {
 }
 
 html > body main .input .menu-holder .container .toggles .toggle.active .object {
-  background: #45D045;
+  background: var(--switch-on-color);
 }
 
 html > body main .sudoku-solved {
@@ -475,7 +460,7 @@ html > body main .sudoku-solved {
 html > body main .sudoku-solved .text {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 4vh;
-  color: black;
+  color: var(--sudoku-solved-object-text-font-color);
 }
 
 html > body main .sudoku-solved .button {
@@ -495,5 +480,66 @@ html > body main .sudoku-solved .button .title {
   margin: 0 calc(29vw / 10);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
+  color: var(--button-font-color);
+}
+
+:root {
+  --background-color: #E3E3E3;
+  --main-type-color: #E1E1E1;
+  --title-font-color: #151519;
+  --sudoku-border-color: #909090;
+  --sudoku-cell-font-color: #606060;
+  --sudoku-cell-straight-background-color: #d7d7d7;
+  --sudoku-cell-selected-straight-background-color: #c2c2c2;
+  --sudoku-cell-selected-font-color: #404040;
+  --sudoku-cell-selected-background-color: #d4d4d4;
+  --sudoku-cell-selected-invalid-font-color: #FF4545;
+  --sudoku-cell-selected-invalid-background-color: #FF9090;
+  --sudoku-cell-error-font-color: #FF4545;
+  --sudoku-cell-solid-font-color: #151515;
+  --input-background-color: #dedede;
+  --input-extra-symbol-color: #454545;
+  --input-keyboard-background-color: #dcdcdc;
+  --input-keyboard-font-color: #454545;
+  --button-background-color: #e6e6e6;
+  --button-new-sudoku-background-color: #e8e8e8;
+  --button-font-color: #202020;
+  --button-new-sudoku-list-background-color: #ebebeb;
+  --button-new-sudoku-list-font-color: #303030;
+  --button-new-sudoku-list-second-background-color: #d4d4d4;
+  --switch-off-color: #FF4545;
+  --switch-on-color: #45D045;
+  --sudoku-solved-object-text-font-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1c1c1d;
+    --main-type-color: #1e1e1f;
+    --title-font-color: #eaeae7;
+    --sudoku-border-color: #6f6f70;
+    --sudoku-cell-font-color: #9f9fA0;
+    --sudoku-cell-straight-background-color: #282829;
+    --sudoku-cell-selected-straight-background-color: #1c1c1d;
+    --sudoku-cell-selected-font-color: #bfbfc0;
+    --sudoku-cell-selected-background-color: #2b2b2c;
+    --sudoku-cell-selected-invalid-font-color: #FF4545;
+    --sudoku-cell-selected-invalid-background-color: #FF9090;
+    --sudoku-cell-error-font-color: #FF4545;
+    --sudoku-cell-solid-font-color: #eaeaeb;
+    --input-background-color: #212122;
+    --input-extra-symbol-color: #bababb;
+    --input-keyboard-background-color: #232324;
+    --input-keyboard-font-color: #bababb;
+    --button-background-color: #19191a;
+    --button-new-sudoku-background-color: #161617;
+    --button-font-color: #dfdfe0;
+    --button-new-sudoku-list-background-color: #141415;
+    --button-new-sudoku-list-font-color: #cfcfd0;
+    --button-new-sudoku-list-second-background-color: #2b2b2c;
+    --switch-off-color: #FF4545;
+    --switch-on-color: #45D045;
+    --sudoku-solved-object-text-font-color: #fff;
+  }
 }
 /*# sourceMappingURL=style.css.map */
