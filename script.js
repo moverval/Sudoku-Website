@@ -89,7 +89,6 @@ let markingErrors = false;
                         selectedBox.classList.remove("multiple-numbers");
                         if(markingErrors) {
                             if(parseInt(key.innerText) !== fullTable.real[parseInt(selectedBox.dataset.index)].get()) {
-                                console.log(fullTable.real[parseInt(selectedBox.dataset.index)].get());
                                 selectedBox.classList.add("error");
                             } else {
                                 selectedBox.classList.remove("error");
@@ -112,6 +111,7 @@ let markingErrors = false;
                     selectedBox.classList.add("multiple-numbers");
                     selectedBox.classList.remove("full-number");
                     table.real[parseInt(selectedBox.dataset.index)].set(0);
+                    selectedBox.classList.remove("error");
     
                     const td = selectedBox.getElementsByTagName("td");
                     if(td[parseInt(key.innerText) - 1].innerText.length > 0) {
