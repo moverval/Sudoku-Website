@@ -188,7 +188,7 @@ html > body main .input .k-holder.inactive {
 html > body main .input .k-holder #keyboard {
   height: 22.5vh;
   width: 100%;
-  background: var(--input-keyboard-background-color);
+  background: var(--input-background-color);
   border-collapse: collapse;
   position: absolute;
   bottom: 0;
