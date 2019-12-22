@@ -343,7 +343,7 @@ html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty
   height: 0;
   -webkit-transition: height .3s ease;
   transition: height .3s ease;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder.active {
@@ -366,7 +366,7 @@ html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty
 
 html > body main .input .menu-holder .container .buttons #new-sudoku .difficulty-holder .list-holder .list li {
   text-align: center;
-  padding: 10px 10px;
+  padding: 20px 45px;
   color: var(--button-new-sudoku-list-font-color);
 }
 
@@ -416,6 +416,7 @@ html > body main .input .menu-holder .container .toggles .toggle {
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
   pointer-events: all;
+  z-index: -5;
 }
 
 html > body main .input .menu-holder .container .toggles .toggle .title {

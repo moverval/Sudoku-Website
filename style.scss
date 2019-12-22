@@ -324,7 +324,7 @@ html > {
                                         left: 0;
                                         height: 0;
                                         transition: height .3s ease;
-                                        border-radius: 10px;
+                                        border-radius: 3px;
 
                                         &.active {
                                             z-index: 30;
@@ -344,7 +344,7 @@ html > {
     
                                             li {
                                                 text-align: center;
-                                                padding: 10px 10px;
+                                                padding: 20px 45px;
                                                 color: var(--button-new-sudoku-list-font-color);
                                                 // border-top: 3px solid #505050;
 
@@ -399,6 +399,7 @@ html > {
                                 border-radius: $height / 3;
                                 box-shadow: 0 1px 2px 1px rgba(0,0,0,.2);
                                 pointer-events: all;
+                                z-index: -5; // ORDER TO ID IN NEXT RELEASE
 
                                 .title {
                                     pointer-events: none;
